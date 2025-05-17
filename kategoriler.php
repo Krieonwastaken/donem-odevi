@@ -16,56 +16,50 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
             crossorigin="anonymous"
         >
-        <style>
-            .movie {
-                margin-bottom: 20px;
-            }
-            .movie img {
-                width: 200px;
-            }
-        </style>
     </head>
 
     <body>
-        <header>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="/">RMDB</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/kategoriler.php">Kategoriler</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Popüler</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Yeni Çıkanlar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Kategoriler</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">RMDB</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kategoriler.php">Kategoriler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Popüler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Yeni Çıkanlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kategoriler</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
                         <a class="btn btn-outline-light" href="/giris-yap.php">Giriş Yap</a>
-                    </form>
-                    </div>
+                </form>
                 </div>
-            </nav>
-        </header>
-            
-        <main>
+            </div>
+        </nav>
+    </header>
 
-        </main>
+    <main>
+        <h1>kategoriler</h1>
+    </main>
+    
+    <footer>
 
-        <footer>
+    </footer>
 
-        </footer>
-        
- <h1>Movie Reviews</h1>
+
+    <!-- <h1>Movie Reviews</h1>
 
     <div id="movie-container"></div>
 
@@ -110,7 +104,7 @@
         fetchMovieData("Inception");
         fetchMovieData("The Dark Knight");
         fetchMovieData("The Godfather");
-    </script> 
+    </script> -->
     
 
         <script

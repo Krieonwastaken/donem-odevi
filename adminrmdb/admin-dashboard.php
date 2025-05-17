@@ -16,14 +16,6 @@
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
             crossorigin="anonymous"
         >
-        <style>
-            .movie {
-                margin-bottom: 20px;
-            }
-            .movie img {
-                width: 200px;
-            }
-        </style>
     </head>
 
     <body>
@@ -58,59 +50,13 @@
         </header>
             
         <main>
-
+            <h1>admin sa</h1>
         </main>
 
         <footer>
 
         </footer>
         
- <h1>Movie Reviews</h1>
-
-    <div id="movie-container"></div>
-
-    <script>
-        const apiKey = "6a0f3fc4";
-
-        function fetchMovieData(title) {
-            const url = `http://www.omdbapi.com/?t=${title}&apikey=${apiKey}&r=json`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.Response === "True") {
-                        displayMovie(data);
-                    } else {
-                        console.log("Movie not found:", data.Error);
-                    }
-                })
-                .catch(error => console.error("Error fetching movie data:", error));
-        }
-
-        function displayMovie(data) {
-            const movieContainer = document.getElementById('movie-container');
-            
-            // Create a new div to display movie info
-            const movieDiv = document.createElement('div');
-            movieDiv.classList.add('movie');
-
-            // Display movie title, genre, description, and poster
-            movieDiv.innerHTML = `
-                <h2>${data.Title}</h2>
-                <img src="${data.Poster}" alt="${data.Title} Poster">
-                <p><strong>Genre:</strong> ${data.Genre}</p>
-                <p><strong>Description:</strong> ${data.Plot}</p>
-            `;
-            
-            // Append the new movie div to the movie container
-            movieContainer.appendChild(movieDiv);
-        }
-
-        // Fetch data for a few example movies
-        fetchMovieData("Inception");
-        fetchMovieData("The Dark Knight");
-        fetchMovieData("The Godfather");
-    </script> 
     
 
         <script

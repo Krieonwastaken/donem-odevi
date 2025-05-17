@@ -1,3 +1,31 @@
+<?php
+session_start();
+// Check if the form has been submitted using POST method
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Retrieve form data
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Example credentials (replace with your actual validation logic or database check)
+    $valid_email = "adminmail@gmail.com";
+    $valid_pass = "12345";
+
+    echo $email;
+    echo $password;
+    // Validate credentials
+    if ($email === $valid_email && $password === $valid_pass) {
+        // Store session for admin user
+        $_SESSION['admin'] = $email;
+        header("Location: adminrmdb/admin-dashboard.php"); // Redirect to admin dashboard
+        exit();
+    } else {
+        // Show error message if login fails
+        session_destroy();
+        $_POST = array();
+        header("Refresh:0");
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -26,7 +54,7 @@
         </style>
     </head>
 
-    <body>
+    <body class="h-100">
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
                 <div class="container-fluid">
@@ -50,67 +78,34 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <a class="btn btn-outline-light" href="/giris-yap.php">Giriş Yap</a>
+                        <a class="btn btn-outline-light" href="/kayit-ol.php">Kayıt Ol</a>
                     </form>
                     </div>
                 </div>
             </nav>
         </header>
-            
+    
         <main>
-
+            <div class="container-fluid d-flex justify-content-center mt-5">
+                <form class="bg-dark text-light p-3 rounded w-25" method="post" autocomplete="off" action="">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">E-Posta</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Şifre</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary w-50">Giriş</button>
+                    </div>
+                </form>
+            </div>
         </main>
 
         <footer>
 
         </footer>
-        
- <h1>Movie Reviews</h1>
-
-    <div id="movie-container"></div>
-
-    <script>
-        const apiKey = "6a0f3fc4";
-
-        function fetchMovieData(title) {
-            const url = `http://www.omdbapi.com/?t=${title}&apikey=${apiKey}&r=json`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.Response === "True") {
-                        displayMovie(data);
-                    } else {
-                        console.log("Movie not found:", data.Error);
-                    }
-                })
-                .catch(error => console.error("Error fetching movie data:", error));
-        }
-
-        function displayMovie(data) {
-            const movieContainer = document.getElementById('movie-container');
-            
-            // Create a new div to display movie info
-            const movieDiv = document.createElement('div');
-            movieDiv.classList.add('movie');
-
-            // Display movie title, genre, description, and poster
-            movieDiv.innerHTML = `
-                <h2>${data.Title}</h2>
-                <img src="${data.Poster}" alt="${data.Title} Poster">
-                <p><strong>Genre:</strong> ${data.Genre}</p>
-                <p><strong>Description:</strong> ${data.Plot}</p>
-            `;
-            
-            // Append the new movie div to the movie container
-            movieContainer.appendChild(movieDiv);
-        }
-
-        // Fetch data for a few example movies
-        fetchMovieData("Inception");
-        fetchMovieData("The Dark Knight");
-        fetchMovieData("The Godfather");
-    </script> 
     
 
         <script
